@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { format } from 'date-fns';
+
+const posts = await Astro.glob("../../content/blog/**/*.md");
+---
+
+<Layout title="Blog" description="Latest articles and news from Chapter Corner Community">
+    <section class="py-8">
+        <h1 class="text-3xl font-bold text-primary mb-4">Blog</h1>
+        <ul class="space-y-4">
+            {posts.map((post) => (
+                <li class="bg-white rounded-lg shadow-md p-4">
+                    <a href={post.url} class="block hover:text-secondary">
+                        <h2 class="text-xl font-semibold">{post.frontmatter.title}</h2>
+                        <time datetime={post.frontmatter.pubDate} class="text-gray-500">{format(new Date(post.frontmatter.pubDate), 'MMMM dd, yyyy')}</time>
+                        <p class="text-gray-700">{post.frontmatter.description}</p>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </section>
+</Layout>

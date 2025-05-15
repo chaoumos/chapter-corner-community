@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const siteTitle = "Chapter Corner Community: Your Literary Home";
+const siteDescription = "Connect with fellow bookworms! Discover new reads, join discussions, and share your literary passions on our vibrant online community.";
+---
+
+<Layout title={siteTitle} description={siteDescription}>
+    <section class="py-12">
+        <h1 class="text-4xl font-bold text-primary mb-4">Welcome to Chapter Corner Community!</h1>
+        <p class="text-gray-700 mb-8">
+            Your literary home awaits! Connect with fellow bookworms, discover new reads, and share your literary passions on our vibrant online community.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-2xl font-semibold text-secondary mb-4">Explore Our Community</h2>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li>User Profiles with Reading Lists</li>
+                    <li>Forum Section for Book Discussions</li>
+                    <li>Book Review Section with User Ratings</li>
+                    <li>Book Swap Area for Trading Books</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://placehold.co/800x400.png" alt="Bookshelf" class="rounded-lg shadow-md" data-ai-hint="bookshelf books"/>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-2xl font-semibold text-secondary mb-4">Search for Your Next Read</h2>
+            <p class="text-gray-700">Find books by title, author, or genre using our search function.</p>
+            {/* Add search form here */}
+        </div>
+    </section>
+</Layout>

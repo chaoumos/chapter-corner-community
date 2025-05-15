@@ -1,0 +1,44 @@
+---
+import type { Props as AstroProps } from 'astro';
+
+interface Props extends AstroProps {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={description}>
+    <meta name="author" content="Chapter Corner Community">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title || `${ "Chapter Corner Community: Your Literary Home" }`}</title>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <header class="flex justify-between items-center mb-8">
+            <a href="/" class="text-2xl font-bold text-primary">Chapter Corner Community: Your Literary Home</a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="/" class="hover:text-secondary">Home</a></li>
+                    <li><a href="/blog" class="hover:text-secondary">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <slot />
+        </main>
+
+        <footer class="text-center mt-16 py-4 border-t border-gray-300">
+            © {new Date().getFullYear()} Chapter Corner Community: Your Literary Home
+        </footer>
+    </div>
+</body>
+</html>
